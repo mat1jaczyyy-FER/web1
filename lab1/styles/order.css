@@ -1,0 +1,38 @@
+.flowers-grid {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.flower{
+  width: 200px;
+  height: 200px;
+  margin-block-start: auto;
+  margin-block-end: auto;
+}
+
+.flower-div {
+  width:100%;
+
+}
+.news-grid {
+  grid-template-columns: 1fr 3fr;
+  margin-top: 15px;
+}
+.news-icon {
+  text-align: right;
+  margin-right: 15px;
+}
+.news-header {
+  font-weight: bold;
+}
+.news-email {
+  width: 66%;
+  padding: 5px;
+  border-radius: 3px;
+}
+.news-button {
+  border: 0px;
+  border-radius: 3px;
+  background-color: #803060;
+  color: #ffffff;
+  padding: 7px;
+}
