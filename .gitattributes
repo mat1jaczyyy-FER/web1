@@ -3,3 +3,4 @@
 
 # Linguist
 vendor/* linguist-vendored
+normalize.css linguist-vendored
