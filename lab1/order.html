@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
@@ -9,17 +8,16 @@
     <link rel="shortcut icon" type="image/png" href="images/flower-icon.png" />
     <link rel="stylesheet" type="text/css" href="vendor/normalize.css">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
-    <link rel="stylesheet" href="styles/order.css">
+    <link rel="stylesheet" type="text/css" href="styles/order.css">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 </head>
-
 
 <body class="content">
     <header class="header primary-color-bg">
         <nav class="navigation container">
             <div class="menu">
                 <a href="index.html" class="link menu-item">Home</a>
-                <a href="#" class="link menu-item">Order</a>
+                <a href="order.html" class="link menu-item">Order</a>
                 <a href="index.html" class="link">
                     <img class="scaled-image scaled-image-fixed" src="images/logo.svg" alt="Company logo">
                 </a>
@@ -30,62 +28,58 @@
     </header>
 
     <main class="main">
-        <section class="flowers secondary-color-bg">
-            <div class="container">
-                <h1 class="main-color"><center><span class="main-color-emphasized">Flowers</span> inventory</center></h1>
-                <div class="separator"></div>
+        <section class="section secondary-color-bg">
+            <div class="card primary-color-bg">
+                <img src="images/chrysanthemum.jpg" />
+                <p>
+                    <span class="font-secondary main-color-emphasized">Blue flowers</span>
+                    <br />
+                    <span class="smaller-font">
+                        Is blue your favorite color?
+                        <br />
+                        <button class="card-button">See more</button>
+                    </span>
+                </p>
+            </div>
 
-                <div class="container-grid flowers-grid">
-                    <div class="flower-div">
-                        <img class="flower" src="images/tulip.jpg" alt="Tulips">
-                        <figcaption>Tulips</figcaption>
+            <div class="container full-screen-width">
+                <div class="centered-container">
+                    <h1 class="decorated-title font-secondary main-color"><span
+                            class="main-color-emphasized">Flowers</span> Inventory</h1>
+                    <div class="separator"></div>
+                </div>
+                <div class="container-grid container-grid-three-thirds">
+                    <div class="order-inventory-listing">
+                        <img src="images/tulip.jpg" />
+                        <p class="font-secondary main-color-emphasized">Tulips</p>
                     </div>
-
-                    <div class="flower-div">
-                        <img class="flower" src="images/lavender.jpg" alt="Lavender">
-                        <figcaption>Lavender</figcaption>
+                    <div class="order-inventory-listing">
+                        <img src="images/lavender.jpg" />
+                        <p class="font-secondary main-color-emphasized">Lavender</p>
                     </div>
-
-                    <div class="flower-div">
-                        <img class="flower" src="images/fuchsia.jpg" alt="Fuchsia">
-                        <figcaption>Fuchsia</figcaption>
+                    <div class="order-inventory-listing">
+                        <img src="images/fuchsia.jpg" />
+                        <p class="font-secondary main-color-emphasized">Fuchsia</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="flowers primary-color-bg">
-            <div class="container">
-                <h1 class="main-color"><center><span class="main-color-emphasized">Tools</span> inventory</center></h1>
-                <div class="separator"></div>
-
-                <div class="container-grid flowers-grid">
-                    <div class="flower-div">
-                        <img class="flower" src="images/rake.jpg" alt="Rakes">
-                        <figcaption>Rakes</figcaption>
-                    </div>
-    
-                    <div class="flower-div">
-                        <img class="flower" src="images/shovel.jpg" alt="Shovel">
-                        <figcaption>Shovels</figcaption>
-                    </div>
+        <section class="section primary-color-bg">
+            <div class="container full-screen-width">
+                <div class="centered-container">
+                    <h1 class="decorated-title font-secondary main-color"><span
+                            class="main-color-emphasized">Tools</span> Inventory</h1>
+                    <div class="separator"></div>
                 </div>
-            </div>
-        </section>
-
-        <section class="flowers secondary-color-bg">
-            <div class="container">
-                <div class="container-grid news-grid">
-                    <div class="news-icon">
-                        <img src="images/news-icon.png" />
+                <div class="container-grid container-grid-three-thirds">
+                    <div class="order-inventory-listing">
+                        <img src="images/rake.jpg" />
+                        <p class="font-secondary main-color-emphasized">Rakes</p>
                     </div>
-                    <div>
-                        <p>
-                            <span class="main-color-emphasized news-header">Subscribe to our Newsletter and get 20% off your first order:</span>
-                        </p>
-                        <p>
-                            <input class="news-email" type="text" placeholder="Your e-mail" /> <button class="news-button">Subscribe</button>
-                        </p>
+                    <div class="order-inventory-listing">
+                        <img src="images/shovel.jpg" />
+                        <p class="font-secondary main-color-emphasized">Shovels</p>
                     </div>
                 </div>
             </div>
@@ -109,6 +103,5 @@
         </div>
     </footer>
 </body>
-    
 
 </html>
