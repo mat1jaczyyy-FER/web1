@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Flower power!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="images/flower-icon.png" />
+    <link rel="stylesheet" type="text/css" href="vendor/normalize.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+</head>
+
+
+<body class="content body-header-fixed">
+    <header class="header header-fixed primary-color-bg">
+        <nav class="navigation container">
+            <div class="menu">
+                <a href="index.html" class="link menu-item">Home</a>
+                <a href="order.html" class="link menu-item link-active">Order</a>
+                <a href="index.html" class="link">
+                    <img class="scaled-image scaled-image-fixed" src="images/logo.svg" alt="Company logo">
+                </a>
+                <a href="#" class="link menu-item">Contact us</a>
+                <a href="cart.html" class="link menu-item cart-menu">
+                    <img src="images/cart-icon.svg" alt="Cart icon">
+                    <div class="cart-menu-status">
+                        <div id="cart-items">0</div>
+                        <div>items</div>
+                    </div>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main class="main">
+
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="menu menu-distributed">
+                <div class="infobox infobox-marginless infobox-copyright">
+                    <h4 class="infobox-title infobox-title-secondary-color main-color-emphasized">
+                        Copy this as much as you like
+                    </h4>
+                </div>
+                <div class="infobox infobox-marginless infobox-flower">
+                    <h4 class="infobox-title infobox-title-secondary-color main-color-emphasized">
+                        Flower power
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <template id="category-template">
+        <section class="section secondary-color-bg">
+            <div class="centered-container">
+                <h1 class="decorated-title font-secondary main-color">
+                    <span class="main-color-emphasized">Category name</span>
+                    Inventory</h1>
+                <div class="separator"></div>
+            </div>
+            <div class="gallery">
+            </div>
+        </section>
+    </template>
+    <template id="product-template">
+        <div class="photo-box" data-id="">
+            <img class="photo-box-image" src=""></img>
+            <div class="photo-box-title font-secondary main-color-emphasized">Product name</div>
+            <div class="cart-btn" onclick=""></div>
+        </div>
+    </template>
+    <script>
+        let getData = async function () {
+            let response = await fetch("https://web1lab2.azurewebsites.net/categories");
+            let data = await response.json();
+            addCategories(data);
+        }
+
+        let addCategories = async function (categories) {
+            let main = document.querySelector('main');
+            let categoryTemplate = document.querySelector('#category-template');
+            let productTemplate = document.querySelector('#product-template');
+
+            for (let index = 0; index < categories.length; index++) {
+                let category = categoryTemplate.content.cloneNode(true);
+                let categoryTitleElement = category.querySelector('.decorated-title > span');
+                categoryTitleElement.textContent = categories[index].name;
+
+                let galleryTitleElement = category.querySelector('.gallery');
+
+                let response = await fetch("https://web1lab2.azurewebsites.net/products?categoryId=" + categories[index].id);
+                let data = await response.json();
+
+                for (let i = 0; i < data.length; i++) {
+                    let product = productTemplate.content.cloneNode(true);
+                    
+                    let productTitleElement = product.querySelector('.photo-box-title');
+                    productTitleElement.textContent = data[i].name;
+
+                    let productImageElement = product.querySelector('.photo-box-image');
+                    productImageElement.src = data[i].imageUrl;
+                    productImageElement.style.objectFit = "cover";
+
+                    let productCartElement = product.querySelector('.cart-btn');
+                    productCartElement.setAttribute("onclick", "addToCart(\"" + data[i].id + "\")");
+
+                    galleryTitleElement.appendChild(product);
+                }
+
+                main.appendChild(category);
+            }
+        };
+        
+        getData();
+		
+        function addToCart(x) {
+            x = "cart-" + x;
+            let curr = localStorage.getItem(x);
+
+            if (curr == null) curr = 1;
+            else curr++;
+
+            localStorage.setItem(x, curr);
+
+            refreshCartItems();
+        }
+    </script>
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>
