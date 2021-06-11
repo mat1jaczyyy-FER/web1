@@ -57,11 +57,7 @@
                     <div class="entry-total-price-val"><%= cart.totalAmount %></div>
 
                     <div class="entry-total-price-btn">
-                        <% if (user !== undefined) {%>
-                        <button class="btn" onClick=" location.replace('./checkout')">Order now !</button>
-                        <% } else { %>
-                        <button class="btn" onClick=" location.replace('./login')">Login to order</button>
-                        <% } %>
+                        <button class="btn" onClick=" location.replace('./promotional')">Proceed</button>
                     </div>
                 </div>
                 <% } %>

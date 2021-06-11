@@ -22,7 +22,6 @@ router.get('/', cartSanitizer, function (req, res, next) {
     });
 });
 
-
 router.get('/add/:id', async function (req, res, next) {
     //dodavanje jednog artikla u košaricu
     ensureCart(req);

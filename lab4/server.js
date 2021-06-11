@@ -15,6 +15,7 @@ const logoutRoute = require('./routes/logout.routes');
 const signupRoute = require('./routes/signup.routes');
 const cartRoute = require('./routes/cart.routes');
 const userRoute = require('./routes/user.routes');
+const promotionalRoute = require('./routes/promotional.routes');
 const checkoutRoute = require('./routes/checkout.routes');
 
 //middleware - predlošci (ejs)
@@ -44,6 +45,7 @@ app.use('/logout', logoutRoute);
 app.use('/signup', signupRoute);
 app.use('/cart', cartRoute);
 app.use('/user', userRoute);
+app.use('/promotional', promotionalRoute);
 app.use('/checkout', checkoutRoute);
 
 
